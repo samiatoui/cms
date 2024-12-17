@@ -17,6 +17,21 @@ app.get('/api/categories', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+
+app.get('/api/products', async (req, res) => {
+  try {
+      // Query to fetch all products
+      const query = 'SELECT * FROM products';
+      const result = await db.query(query);
+      
+      // Send the list of products as a response
+      res.status(200).json(result.rows);
+  } catch (error) {
+      console.error('Error fetching products:', error);
+      res.status(500).send('Server Error');
+  }
+});
+
 // POST endpoint to add a new category
 app.post('/api/categories', async (req, res) => {
     const { name } = req.body;
