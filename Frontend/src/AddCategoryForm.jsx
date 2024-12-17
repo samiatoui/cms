@@ -21,12 +21,14 @@ function AddCategoryForm() {
     try {
       const response = await axios.post('http://localhost:5000/api/categories', categoryData);
       console.log('Category added:', response.data);
-      // Reset form or show success message
+      // Reset form after successful submission
       setCategoryData({
         name: '',
       });
+      window.location.reload();
+
     } catch (error) {
-      console.error('Error adding product:', error);
+      console.error('Error adding category:', error);
       // Handle error (e.g., show error message)
     }
   };

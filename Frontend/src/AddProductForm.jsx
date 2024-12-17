@@ -48,6 +48,8 @@ function AddProductForm() {
         stock_quantity: '',
         category_id: '', // Reset category
       });
+      window.location.reload();
+
     } catch (error) {
       console.error('Error adding product:', error);
       // Handle error (e.g., show error message)
